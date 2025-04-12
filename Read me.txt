@@ -1,0 +1,90 @@
+Handwriting Similarity Project (Siamese Neural Network - PyTorch)
+
+This project compares two handwriting images and calculates how similar they are using a Siamese Neural Network in PyTorch. Useful for handwriting verification or matching tasks.
+
+Project Folder Structure:
+
+dataset/
+
+images/ — handwriting images (e.g., w001_0.png)
+
+labels.csv — original writer-label CSV file
+
+siamese_model.py — model architecture and ContrastiveLoss
+
+siamese_dataset.py — custom dataset class
+
+train.py — training script
+
+predict_and_show.py — for showing similarity between two handwriting samples
+
+generate_clean_labels.py — cleans label CSV by removing missing images
+
+check_missing_images.py — checks which images are missing
+
+labels_cleaned.csv — generated cleaned label file
+
+README.txt — this file
+
+Setup Instructions:
+
+(Optional) Create a virtual environment:
+
+Run in terminal:
+
+python -m venv venv
+
+venv\Scripts\activate (on Windows)
+
+Install required libraries:
+
+Run this command:
+
+pip install torch torchvision matplotlib pandas opencv-python tqdm
+
+Step-by-Step Usage:
+
+Step 1: Clean the dataset
+Run this:
+
+python generate_clean_labels.py
+This will create a labels_cleaned.csv file with only valid entries.
+
+Step 2: Train the Model
+Run this:
+
+python train.py
+This will train the model for 3 epochs (or more if changed in the code).
+
+Step 3: Predict and Show Similarity
+Run this:
+
+python predict_and_show.py
+This script will:
+
+Load two handwriting images
+
+Show them side-by-side
+
+Display the similarity score (between 0 and 1)
+
+Optional: You can edit predict_and_show.py to loop through many image pairs if you want to show multiple examples one by one.
+
+Sample Output:
+
+Two images side-by-side, with output like:
+"Similarity Score: 0.87"
+Where 1 means same writer and 0 means different.
+
+Future Ideas:
+
+Add a GUI for selecting and comparing images
+
+Use a larger handwriting dataset (like IAM)
+
+Add triplet loss or visualization tools
+
+Created by:
+Naman Deep Singh
+Built with PyTorch, OpenCV, and love for learning!
+
